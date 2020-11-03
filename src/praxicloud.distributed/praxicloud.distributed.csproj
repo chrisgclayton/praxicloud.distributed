@@ -3,7 +3,6 @@
   <Import Project="..\common.props" />
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>praxicloud.distributed</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>PraxiCloud-Distributed</PackageId>
     <Description>PraxiCloud libraries offer a range of common functions, features and base classes to use when building solutions, increasing the time to delivery.</Description>

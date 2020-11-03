@@ -6,8 +6,8 @@
     <Copyright>© Chris Clayton. All rights reserved.</Copyright>
     <Product>PraxiCloud Libraries</Product>
     <RepositoryType>git</RepositoryType>
-    <PackageProjectUrl>https://github.com/chrisgclayton/praxicloud.core</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/chrisgclayton/praxicloud.core</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/chrisgclayton/praxicloud.distributed</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/chrisgclayton/praxicloud.distributed</RepositoryUrl>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <Version>1.0.1</Version>
     <NeutralLanguage>en</NeutralLanguage>
