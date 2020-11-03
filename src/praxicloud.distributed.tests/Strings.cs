@@ -46,12 +46,13 @@ namespace praxicloud.distributed.tests
             var idTracker = new List<int>();
             var updateCount = 0;
 
-            var manager = new StringIndexManager(managerCount, 0, indexKeys);
-
-            manager.NotificationHandler = (manager, cancellationToken) =>
+            var manager = new StringIndexManager(managerCount, 0, indexKeys)
             {
-                Interlocked.Increment(ref updateCount);
-                return Task.CompletedTask;
+                NotificationHandler = (manager, cancellationToken) =>
+                {
+                    Interlocked.Increment(ref updateCount);
+                    return Task.CompletedTask;
+                }
             };
 
             manager.InitializeAsync(CancellationToken.None).GetAwaiter().GetResult();

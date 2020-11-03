@@ -57,7 +57,7 @@ namespace praxicloud.distributed.indexes
         /// <summary>
         /// Checks if the specified index is own
         /// </summary>
-        /// <param name="value">The value that is being checked</param>
+        /// <param name="index">The value that is being checked</param>
         /// <returns>True if the current id owns the index value</returns>
         bool IsOwner(T index);
 

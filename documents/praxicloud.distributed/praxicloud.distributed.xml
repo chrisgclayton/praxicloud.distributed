@@ -1,0 +1,580 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>praxicloud.distributed</name>
+    </assembly>
+    <members>
+        <member name="T:praxicloud.distributed.indexes.discrete.DiscreteIndexManager`1">
+            <summary>
+            A round robin index distribution tool 
+            </summary>
+            <typeparam name="T">A numeric value</typeparam>
+        </member>
+        <member name="F:praxicloud.distributed.indexes.discrete.DiscreteIndexManager`1._control">
+            <summary>
+            An asynchronous control for access to reload the collection
+            </summary>
+        </member>
+        <member name="M:praxicloud.distributed.indexes.discrete.DiscreteIndexManager`1.#ctor(System.Int32,System.Int32,`0,`0)">
+            <summary>
+            Initializes a new instance of the type
+            </summary>
+            <param name="managerQuantity">The number of managers that will take part in the processing</param>
+            <param name="id">The 0 based index of the manager that owns this instance</param>
+            <param name="minimum">The minimum value in the entire range</param>
+            <param name="maximum">The maximum value in the entire range</param>
+        </member>
+        <member name="P:praxicloud.distributed.indexes.discrete.DiscreteIndexManager`1.OwnedIndexes">
+            <inheritdoc />
+        </member>
+        <member name="P:praxicloud.distributed.indexes.discrete.DiscreteIndexManager`1.Id">
+            <inheritdoc />
+        </member>
+        <member name="P:praxicloud.distributed.indexes.discrete.DiscreteIndexManager`1.Minimum">
+            <inheritdoc />
+        </member>
+        <member name="P:praxicloud.distributed.indexes.discrete.DiscreteIndexManager`1.Maximum">
+            <inheritdoc />
+        </member>
+        <member name="P:praxicloud.distributed.indexes.discrete.DiscreteIndexManager`1.AreIndexesUpdatable">
+            <inheritdoc />
+        </member>
+        <member name="P:praxicloud.distributed.indexes.discrete.DiscreteIndexManager`1.IsIdUpdatable">
+            <inheritdoc />
+        </member>
+        <member name="P:praxicloud.distributed.indexes.discrete.DiscreteIndexManager`1.ManagerQuantity">
+            <inheritdoc />
+        </member>
+        <member name="P:praxicloud.distributed.indexes.discrete.DiscreteIndexManager`1.IsManagerQuantityUpdatable">
+            <inheritdoc />
+        </member>
+        <member name="P:praxicloud.distributed.indexes.discrete.DiscreteIndexManager`1.NotificationHandler">
+            <inheritdoc />
+        </member>
+        <member name="M:praxicloud.distributed.indexes.discrete.DiscreteIndexManager`1.InitializeAsync(System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:praxicloud.distributed.indexes.discrete.DiscreteIndexManager`1.IsOwner(`0)">
+            <inheritdoc />
+        </member>
+        <member name="M:praxicloud.distributed.indexes.discrete.DiscreteIndexManager`1.UpdateIdAsync(System.Int32,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:praxicloud.distributed.indexes.discrete.DiscreteIndexManager`1.UpdateManagerQuantityAsync(System.Int32,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:praxicloud.distributed.indexes.discrete.DiscreteIndexManager`1.UpdateIndexesAsync(`0,`0,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:praxicloud.distributed.indexes.discrete.DiscreteIndexManager`1.CreateOwnedIndexCollectionAsync(System.Int32,System.Int32,System.Object,System.Object,System.Threading.CancellationToken)">
+            <summary>
+            Creates a collection of owned indexes from the range provided
+            </summary>
+            <param name="managerQuantity">The number of managers handling the index</param>
+            <param name="id">The 0 based id of the manager</param>
+            <param name="minimum">The minimum value in the range</param>
+            <param name="maximum">The maximum value in the range</param>
+            <param name="cancellationToken">A token to monitor for abort requests</param>
+            <returns>The array of owned indexes</returns>
+        </member>
+        <member name="T:praxicloud.distributed.indexes.discrete.Int64IndexManager">
+            <summary>
+            Discrete round robin index manager for signed 64 bit integers
+            </summary>
+        </member>
+        <member name="M:praxicloud.distributed.indexes.discrete.Int64IndexManager.#ctor(System.Int32,System.Int32,System.Int64,System.Int64)">
+            <summary>
+            Initializes a new instance of the type
+            </summary>
+            <param name="managerQuantity">The number of managers that will take part in the processing</param>
+            <param name="id">The 0 based index of the manager that owns this instance</param>
+            <param name="minimum">The minimum value in the entire range</param>
+            <param name="maximum">The maximum value in the entire range</param>
+        </member>
+        <member name="T:praxicloud.distributed.indexes.discrete.Int32IndexManager">
+            <summary>
+            Discrete round robin index manager for signed 32 bit integers
+            </summary>
+        </member>
+        <member name="M:praxicloud.distributed.indexes.discrete.Int32IndexManager.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the type
+            </summary>
+            <param name="managerQuantity">The number of managers that will take part in the processing</param>
+            <param name="id">The 0 based index of the manager that owns this instance</param>
+            <param name="minimum">The minimum value in the entire range</param>
+            <param name="maximum">The maximum value in the entire range</param>
+        </member>
+        <member name="T:praxicloud.distributed.indexes.discrete.Int16IndexManager">
+            <summary>
+            Discrete round robin index manager for signed 16 bit integers
+            </summary>
+        </member>
+        <member name="M:praxicloud.distributed.indexes.discrete.Int16IndexManager.#ctor(System.Int32,System.Int32,System.Int16,System.Int16)">
+            <summary>
+            Initializes a new instance of the type
+            </summary>
+            <param name="managerQuantity">The number of managers that will take part in the processing</param>
+            <param name="id">The 0 based index of the manager that owns this instance</param>
+            <param name="minimum">The minimum value in the entire range</param>
+            <param name="maximum">The maximum value in the entire range</param>
+        </member>
+        <member name="T:praxicloud.distributed.indexes.discrete.ByteIndexManager">
+            <summary>
+            Discrete round robin index manager for byte range
+            </summary>
+        </member>
+        <member name="M:praxicloud.distributed.indexes.discrete.ByteIndexManager.#ctor(System.Int32,System.Int32,System.Byte,System.Byte)">
+            <summary>
+            Initializes a new instance of the type
+            </summary>
+            <param name="managerQuantity">The number of managers that will take part in the processing</param>
+            <param name="id">The 0 based index of the manager that owns this instance</param>
+            <param name="minimum">The minimum value in the entire range</param>
+            <param name="maximum">The maximum value in the entire range</param>
+        </member>
+        <member name="T:praxicloud.distributed.indexes.discrete.UnsignedInt64IndexManager">
+            <summary>
+            Discrete round robin index manager for unsigned 64 bit integers
+            </summary>
+        </member>
+        <member name="M:praxicloud.distributed.indexes.discrete.UnsignedInt64IndexManager.#ctor(System.Int32,System.Int32,System.UInt64,System.UInt64)">
+            <summary>
+            Initializes a new instance of the type
+            </summary>
+            <param name="managerQuantity">The number of managers that will take part in the processing</param>
+            <param name="id">The 0 based index of the manager that owns this instance</param>
+            <param name="minimum">The minimum value in the entire range</param>
+            <param name="maximum">The maximum value in the entire range</param>
+        </member>
+        <member name="T:praxicloud.distributed.indexes.discrete.UnsignedInt32IndexManager">
+            <summary>
+            Discrete round robin index manager for unsigned 32 bit integers
+            </summary>
+        </member>
+        <member name="M:praxicloud.distributed.indexes.discrete.UnsignedInt32IndexManager.#ctor(System.Int32,System.Int32,System.UInt32,System.UInt32)">
+            <summary>
+            Initializes a new instance of the type
+            </summary>
+            <param name="managerQuantity">The number of managers that will take part in the processing</param>
+            <param name="id">The 0 based index of the manager that owns this instance</param>
+            <param name="minimum">The minimum value in the entire range</param>
+            <param name="maximum">The maximum value in the entire range</param>
+        </member>
+        <member name="T:praxicloud.distributed.indexes.discrete.UnsignedInt16IndexManager">
+            <summary>
+            Discrete round robin index manager for unsigned 16 bit integers
+            </summary>
+        </member>
+        <member name="M:praxicloud.distributed.indexes.discrete.UnsignedInt16IndexManager.#ctor(System.Int32,System.Int32,System.UInt16,System.UInt16)">
+            <summary>
+            Initializes a new instance of the type
+            </summary>
+            <param name="managerQuantity">The number of managers that will take part in the processing</param>
+            <param name="id">The 0 based index of the manager that owns this instance</param>
+            <param name="minimum">The minimum value in the entire range</param>
+            <param name="maximum">The maximum value in the entire range</param>
+        </member>
+        <member name="T:praxicloud.distributed.indexes.IDiscreteIndexManager`1">
+            <summary>
+            An index manager that handles discrete ownership vs. ranges
+            </summary>
+            <typeparam name="T">A numeric type</typeparam>
+        </member>
+        <member name="P:praxicloud.distributed.indexes.IDiscreteIndexManager`1.OwnedIndexes">
+            <summary>
+            Returns a list of the indexes that are owned by the id
+            </summary>
+        </member>
+        <member name="T:praxicloud.distributed.indexes.IIndexManager`1">
+            <summary>
+            An index manager that handles 
+            </summary>
+        </member>
+        <member name="T:praxicloud.distributed.indexes.IIndexManager`1.UpdateNotificationHandler">
+            <summary>
+            The signature of a handler to receive notifications of index, id or manager count change events.
+            </summary>
+            <param name="manager">The manager that the change occurred on</param>
+            <param name="cancellationToken">A token to monitor for abort requests</param>
+        </member>
+        <member name="P:praxicloud.distributed.indexes.IIndexManager`1.Id">
+            <summary>
+            The 0 based id
+            </summary>
+        </member>
+        <member name="P:praxicloud.distributed.indexes.IIndexManager`1.ManagerQuantity">
+            <summary>
+            The number of managers that are in existance
+            </summary>
+        </member>
+        <member name="P:praxicloud.distributed.indexes.IIndexManager`1.AreIndexesUpdatable">
+            <summary>
+            True if the range supports updating
+            </summary>
+        </member>
+        <member name="P:praxicloud.distributed.indexes.IIndexManager`1.IsIdUpdatable">
+            <summary>
+            True if the id supports updating
+            </summary>
+        </member>
+        <member name="P:praxicloud.distributed.indexes.IIndexManager`1.IsManagerQuantityUpdatable">
+            <summary>
+            True if the manager quantity is updatable
+            </summary>
+        </member>
+        <member name="P:praxicloud.distributed.indexes.IIndexManager`1.NotificationHandler">
+            <summary>
+            A handler that can be assigned to be notified of changes to the id, manager quantity or range
+            </summary>
+        </member>
+        <member name="M:praxicloud.distributed.indexes.IIndexManager`1.IsOwner(`0)">
+            <summary>
+            Checks if the specified index is own
+            </summary>
+            <param name="index">The value that is being checked</param>
+            <returns>True if the current id owns the index value</returns>
+        </member>
+        <member name="M:praxicloud.distributed.indexes.IIndexManager`1.UpdateIdAsync(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Updates the id
+            </summary>
+            <param name="id">The new value of the id</param>
+            <param name="cancellationToken">A token to monitor for abort requests</param>
+            <returns>True if it was updated successfully</returns>
+        </member>
+        <member name="M:praxicloud.distributed.indexes.IIndexManager`1.UpdateManagerQuantityAsync(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Updates the manager quantity
+            </summary>
+            <param name="quantity">The new manager quantity</param>
+            <param name="cancellationToken">A token to monitor for abort requests</param>
+            <returns>True if it was updated successfully</returns>
+        </member>
+        <member name="M:praxicloud.distributed.indexes.IIndexManager`1.InitializeAsync(System.Threading.CancellationToken)">
+            <summary>
+            Initializes the manager before first use
+            </summary>
+            <param name="cancellationToken">A token to monitor for abort requests</param>
+        </member>
+        <member name="T:praxicloud.distributed.indexes.IndexRange`1">
+            <summary>
+            A range of index values
+            </summary>
+            <typeparam name="T">A numeric value</typeparam>
+        </member>
+        <member name="M:praxicloud.distributed.indexes.IndexRange`1.#ctor(`0,`0)">
+            <summary>
+            Initializes a new instance of the type
+            </summary>
+            <param name="minimum">The minimum value in the range</param>
+            <param name="maximum">The maximum value in the range</param>
+        </member>
+        <member name="P:praxicloud.distributed.indexes.IndexRange`1.Minimum">
+            <summary>
+            The minimum value in the range
+            </summary>
+        </member>
+        <member name="P:praxicloud.distributed.indexes.IndexRange`1.Maximum">
+            <summary>
+            The maximum value in the ramge
+            </summary>
+        </member>
+        <member name="T:praxicloud.distributed.indexes.INumericIndexManager`1">
+            <summary>
+            An index manager that handles 
+            </summary>
+            <typeparam name="T">A numeric type</typeparam>
+        </member>
+        <member name="P:praxicloud.distributed.indexes.INumericIndexManager`1.Minimum">
+            <summary>
+            The minimum value in the range
+            </summary>
+        </member>
+        <member name="P:praxicloud.distributed.indexes.INumericIndexManager`1.Maximum">
+            <summary>
+            The maximum value in the range
+            </summary>
+        </member>
+        <member name="M:praxicloud.distributed.indexes.INumericIndexManager`1.UpdateIndexesAsync(`0,`0,System.Threading.CancellationToken)">
+            <summary>
+            Updates the range of the partition
+            </summary>
+            <param name="minimum">The minimum value in the range</param>
+            <param name="maximum">The maximum value in the range</param>
+            <param name="cancellationToken">A token to monitor for abort requests</param>
+            <returns>True if the range was updated successfully</returns>
+        </member>
+        <member name="T:praxicloud.distributed.indexes.IRangeIndexManager`1">
+            <summary>
+            An index manager that handles discrete ownership vs. ranges
+            </summary>
+            <typeparam name="T">A numeric type</typeparam>
+        </member>
+        <member name="P:praxicloud.distributed.indexes.IRangeIndexManager`1.OwnedIndexRange">
+            <summary>
+            The range of indexes that are owned by the manager
+            </summary>
+        </member>
+        <member name="T:praxicloud.distributed.indexes.IStringIndexManager">
+            <summary>
+            An index manager that handles strings
+            </summary>
+        </member>
+        <member name="P:praxicloud.distributed.indexes.IStringIndexManager.OwnedIndexes">
+            <summary>
+            The complete list of indexes owned by the index manager
+            </summary>
+        </member>
+        <member name="P:praxicloud.distributed.indexes.IStringIndexManager.Indexes">
+            <summary>
+            The complete index range
+            </summary>
+        </member>
+        <member name="M:praxicloud.distributed.indexes.IStringIndexManager.UpdateIndexesAsync(System.String[],System.Threading.CancellationToken)">
+            <summary>
+            Updates the indexes
+            </summary>
+            <param name="indexes">The complete list of indexes</param>
+            <param name="cancellationToken">A token to monitor for abort requests</param>
+            <returns>True if the range was updated successfully</returns>
+        </member>
+        <member name="T:praxicloud.distributed.indexes.range.RangeIndexManager`1">
+            <summary>
+            A index distribution tool for ranges 
+            </summary>
+            <typeparam name="T">A numeric value</typeparam>
+        </member>
+        <member name="F:praxicloud.distributed.indexes.range.RangeIndexManager`1._control">
+            <summary>
+            An asynchronous control for access to reload the collection
+            </summary>
+        </member>
+        <member name="M:praxicloud.distributed.indexes.range.RangeIndexManager`1.#ctor(System.Int32,System.Int32,`0,`0)">
+            <summary>
+            Initializes a new instance of the type
+            </summary>
+            <param name="managerQuantity">The number of managers that will take part in the processing</param>
+            <param name="id">The 0 based index of the manager that owns this instance</param>
+            <param name="minimum">The minimum value in the entire range</param>
+            <param name="maximum">The maximum value in the entire range</param>
+        </member>
+        <member name="P:praxicloud.distributed.indexes.range.RangeIndexManager`1.Id">
+            <inheritdoc />
+        </member>
+        <member name="P:praxicloud.distributed.indexes.range.RangeIndexManager`1.Minimum">
+            <inheritdoc />
+        </member>
+        <member name="P:praxicloud.distributed.indexes.range.RangeIndexManager`1.Maximum">
+            <inheritdoc />
+        </member>
+        <member name="P:praxicloud.distributed.indexes.range.RangeIndexManager`1.AreIndexesUpdatable">
+            <inheritdoc />
+        </member>
+        <member name="P:praxicloud.distributed.indexes.range.RangeIndexManager`1.IsIdUpdatable">
+            <inheritdoc />
+        </member>
+        <member name="P:praxicloud.distributed.indexes.range.RangeIndexManager`1.ManagerQuantity">
+            <inheritdoc />
+        </member>
+        <member name="P:praxicloud.distributed.indexes.range.RangeIndexManager`1.IsManagerQuantityUpdatable">
+            <inheritdoc />
+        </member>
+        <member name="P:praxicloud.distributed.indexes.range.RangeIndexManager`1.OwnedIndexRange">
+            <inheritdoc />
+        </member>
+        <member name="P:praxicloud.distributed.indexes.range.RangeIndexManager`1.NotificationHandler">
+            <inheritdoc />
+        </member>
+        <member name="M:praxicloud.distributed.indexes.range.RangeIndexManager`1.InitializeAsync(System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:praxicloud.distributed.indexes.range.RangeIndexManager`1.IsOwner(`0)">
+            <inheritdoc />
+        </member>
+        <member name="M:praxicloud.distributed.indexes.range.RangeIndexManager`1.UpdateIdAsync(System.Int32,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:praxicloud.distributed.indexes.range.RangeIndexManager`1.UpdateManagerQuantityAsync(System.Int32,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:praxicloud.distributed.indexes.range.RangeIndexManager`1.UpdateIndexesAsync(`0,`0,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:praxicloud.distributed.indexes.range.RangeIndexManager`1.CreateOwnedIndexCollectionAsync(System.Int32,System.Int32,System.Object,System.Object,System.Threading.CancellationToken)">
+            <summary>
+            Creates a collection of owned indexes from the range provided
+            </summary>
+            <param name="managerQuantity">The number of managers handling the index</param>
+            <param name="id">The 0 based id of the manager</param>
+            <param name="minimum">The minimum value in the range</param>
+            <param name="maximum">The maximum value in the range</param>
+            <param name="cancellationToken">A token to monitor for abort requests</param>
+            <returns>The owned index range</returns>
+        </member>
+        <member name="T:praxicloud.distributed.indexes.range.Int64RangeIndexManager">
+            <summary>
+            Range index manager for signed 64 bit integers
+            </summary>
+        </member>
+        <member name="M:praxicloud.distributed.indexes.range.Int64RangeIndexManager.#ctor(System.Int32,System.Int32,System.Int64,System.Int64)">
+            <summary>
+            Initializes a new instance of the type
+            </summary>
+            <param name="managerQuantity">The number of managers that will take part in the processing</param>
+            <param name="id">The 0 based index of the manager that owns this instance</param>
+            <param name="minimum">The minimum value in the entire range</param>
+            <param name="maximum">The maximum value in the entire range</param>
+        </member>
+        <member name="T:praxicloud.distributed.indexes.range.Int32RangeIndexManager">
+            <summary>
+            Range index manager for signed 32 bit integers
+            </summary>
+        </member>
+        <member name="M:praxicloud.distributed.indexes.range.Int32RangeIndexManager.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the type
+            </summary>
+            <param name="managerQuantity">The number of managers that will take part in the processing</param>
+            <param name="id">The 0 based index of the manager that owns this instance</param>
+            <param name="minimum">The minimum value in the entire range</param>
+            <param name="maximum">The maximum value in the entire range</param>
+        </member>
+        <member name="T:praxicloud.distributed.indexes.range.Int16RangeIndexManager">
+            <summary>
+            Range index manager for signed 16 bit integers
+            </summary>
+        </member>
+        <member name="M:praxicloud.distributed.indexes.range.Int16RangeIndexManager.#ctor(System.Int32,System.Int32,System.Int16,System.Int16)">
+            <summary>
+            Initializes a new instance of the type
+            </summary>
+            <param name="managerQuantity">The number of managers that will take part in the processing</param>
+            <param name="id">The 0 based index of the manager that owns this instance</param>
+            <param name="minimum">The minimum value in the entire range</param>
+            <param name="maximum">The maximum value in the entire range</param>
+        </member>
+        <member name="T:praxicloud.distributed.indexes.range.ByteRangeIndexManager">
+            <summary>
+            Range index manager for byte range
+            </summary>
+        </member>
+        <member name="M:praxicloud.distributed.indexes.range.ByteRangeIndexManager.#ctor(System.Int32,System.Int32,System.Byte,System.Byte)">
+            <summary>
+            Initializes a new instance of the type
+            </summary>
+            <param name="managerQuantity">The number of managers that will take part in the processing</param>
+            <param name="id">The 0 based index of the manager that owns this instance</param>
+            <param name="minimum">The minimum value in the entire range</param>
+            <param name="maximum">The maximum value in the entire range</param>
+        </member>
+        <member name="T:praxicloud.distributed.indexes.range.UnsignedInt64RangeIndexManager">
+            <summary>
+            Range index manager for unsigned 64 bit integers
+            </summary>
+        </member>
+        <member name="M:praxicloud.distributed.indexes.range.UnsignedInt64RangeIndexManager.#ctor(System.Int32,System.Int32,System.UInt64,System.UInt64)">
+            <summary>
+            Initializes a new instance of the type
+            </summary>
+            <param name="managerQuantity">The number of managers that will take part in the processing</param>
+            <param name="id">The 0 based index of the manager that owns this instance</param>
+            <param name="minimum">The minimum value in the entire range</param>
+            <param name="maximum">The maximum value in the entire range</param>
+        </member>
+        <member name="T:praxicloud.distributed.indexes.range.UnsignedInt32RangeIndexManager">
+            <summary>
+            Range index manager for unsigned 32 bit integers
+            </summary>
+        </member>
+        <member name="M:praxicloud.distributed.indexes.range.UnsignedInt32RangeIndexManager.#ctor(System.Int32,System.Int32,System.UInt32,System.UInt32)">
+            <summary>
+            Initializes a new instance of the type
+            </summary>
+            <param name="managerQuantity">The number of managers that will take part in the processing</param>
+            <param name="id">The 0 based index of the manager that owns this instance</param>
+            <param name="minimum">The minimum value in the entire range</param>
+            <param name="maximum">The maximum value in the entire range</param>
+        </member>
+        <member name="T:praxicloud.distributed.indexes.range.UnsignedInt16RangeIndexManager">
+            <summary>
+            Range index manager for unsigned 16 bit integers
+            </summary>
+        </member>
+        <member name="M:praxicloud.distributed.indexes.range.UnsignedInt16RangeIndexManager.#ctor(System.Int32,System.Int32,System.UInt16,System.UInt16)">
+            <summary>
+            Initializes a new instance of the type
+            </summary>
+            <param name="managerQuantity">The number of managers that will take part in the processing</param>
+            <param name="id">The 0 based index of the manager that owns this instance</param>
+            <param name="minimum">The minimum value in the entire range</param>
+            <param name="maximum">The maximum value in the entire range</param>
+        </member>
+        <member name="T:praxicloud.distributed.indexes.strings.StringIndexManager">
+            <summary>
+            A round robin index distribution tool 
+            </summary>
+        </member>
+        <member name="F:praxicloud.distributed.indexes.strings.StringIndexManager._control">
+            <summary>
+            An asynchronous control for access to reload the collection
+            </summary>
+        </member>
+        <member name="M:praxicloud.distributed.indexes.strings.StringIndexManager.#ctor(System.Int32,System.Int32,System.String[])">
+            <summary>
+            Initializes a new instance of the type
+            </summary>
+            <param name="managerQuantity">The number of managers that will take part in the processing</param>
+            <param name="id">The 0 based index of the manager that owns this instance</param>
+            <param name="indexes">The indexes being managed</param>
+        </member>
+        <member name="P:praxicloud.distributed.indexes.strings.StringIndexManager.OwnedIndexes">
+            <inheritdoc />
+        </member>
+        <member name="P:praxicloud.distributed.indexes.strings.StringIndexManager.Id">
+            <inheritdoc />
+        </member>
+        <member name="P:praxicloud.distributed.indexes.strings.StringIndexManager.AreIndexesUpdatable">
+            <inheritdoc />
+        </member>
+        <member name="P:praxicloud.distributed.indexes.strings.StringIndexManager.IsIdUpdatable">
+            <inheritdoc />
+        </member>
+        <member name="P:praxicloud.distributed.indexes.strings.StringIndexManager.ManagerQuantity">
+            <inheritdoc />
+        </member>
+        <member name="P:praxicloud.distributed.indexes.strings.StringIndexManager.IsManagerQuantityUpdatable">
+            <inheritdoc />
+        </member>
+        <member name="P:praxicloud.distributed.indexes.strings.StringIndexManager.Indexes">
+            <inheritdoc />
+        </member>
+        <member name="P:praxicloud.distributed.indexes.strings.StringIndexManager.NotificationHandler">
+            <inheritdoc />
+        </member>
+        <member name="M:praxicloud.distributed.indexes.strings.StringIndexManager.InitializeAsync(System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:praxicloud.distributed.indexes.strings.StringIndexManager.IsOwner(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:praxicloud.distributed.indexes.strings.StringIndexManager.UpdateIdAsync(System.Int32,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:praxicloud.distributed.indexes.strings.StringIndexManager.UpdateManagerQuantityAsync(System.Int32,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:praxicloud.distributed.indexes.strings.StringIndexManager.UpdateIndexesAsync(System.String[],System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:praxicloud.distributed.indexes.strings.StringIndexManager.CreateOwnedIndexCollection(System.Int32,System.Int32,System.String[])">
+            <summary>
+            Creates a collection of owned indexes from the range provided
+            </summary>
+            <param name="managerQuantity">The number of managers handling the index</param>
+            <param name="id">The 0 based id of the manager</param>
+            <param name="indexes">The complete list of indexes</param>
+            <returns>The array of owned indexes</returns>
+        </member>
+    </members>
+</doc>

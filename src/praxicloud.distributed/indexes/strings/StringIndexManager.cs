@@ -17,7 +17,6 @@ namespace praxicloud.distributed.indexes.strings
     /// <summary>
     /// A round robin index distribution tool 
     /// </summary>
-    /// <typeparam name="T">A numeric value</typeparam>
     public sealed class StringIndexManager : IStringIndexManager
     {
         #region Variables
@@ -32,7 +31,7 @@ namespace praxicloud.distributed.indexes.strings
         /// </summary>
         /// <param name="managerQuantity">The number of managers that will take part in the processing</param>
         /// <param name="id">The 0 based index of the manager that owns this instance</param>
-        /// <param name="minimum">The indexes being managed</param>
+        /// <param name="indexes">The indexes being managed</param>
         public StringIndexManager(int managerQuantity, int id, string[] indexes)
         {
             Guard.NotLessThan(nameof(managerQuantity), managerQuantity, 1);
