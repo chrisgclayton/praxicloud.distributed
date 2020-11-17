@@ -17,7 +17,7 @@
 
   <ItemGroup>
     <PackageReference Include="Nito.AsyncEx" Version="5.1.0" />
-    <PackageReference Include="PraxiCloud-Core" Version="1.1.1" />
+    <PackageReference Include="PraxiCloud-Core" Version="1.5.1" />
   </ItemGroup>
 
 </Project>
