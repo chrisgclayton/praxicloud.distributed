@@ -75,7 +75,7 @@ namespace praxicloud.distributed.indexes.range
         /// <inheritdoc />
         public virtual async Task InitializeAsync(CancellationToken cancellationToken)
         {
-            using (await _control.LockAsync())
+            using (await _control.LockAsync(cancellationToken))
             {
                 OwnedIndexRange = await CreateOwnedIndexCollectionAsync(ManagerQuantity, Id, Minimum, Maximum, cancellationToken).ConfigureAwait(false);
             }
@@ -95,7 +95,7 @@ namespace praxicloud.distributed.indexes.range
 
             if (IsIdUpdatable)
             {
-                using (await _control.LockAsync())
+                using (await _control.LockAsync(cancellationToken))
                 {
                     if (IsIdUpdatable)
                     {
@@ -122,7 +122,7 @@ namespace praxicloud.distributed.indexes.range
 
             if (IsManagerQuantityUpdatable)
             {
-                using (await _control.LockAsync())
+                using (await _control.LockAsync(cancellationToken))
                 {
                     if (IsManagerQuantityUpdatable)
                     {
@@ -149,7 +149,7 @@ namespace praxicloud.distributed.indexes.range
 
             if (AreIndexesUpdatable)
             {
-                using (await _control.LockAsync())
+                using (await _control.LockAsync(cancellationToken))
                 {
                     if (AreIndexesUpdatable)
                     {

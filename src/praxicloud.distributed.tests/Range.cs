@@ -82,7 +82,7 @@ namespace praxicloud.distributed.tests
             Assert.IsTrue(idTracker.Count == managerCount);
             Assert.IsTrue(idTracker.Distinct().Count() == managerCount);
             Assert.IsTrue(updateCount == managerCount - 1);
-            Assert.IsTrue(indexes.Count() == managerCount);
+            Assert.IsTrue(indexes.Count == managerCount);
             Assert.IsTrue(indexes.Select(item => item != null ? item.Maximum - item.Minimum + 1 : 0).Sum() == maximum - minimum + 1);
             Assert.IsTrue(indexes.Min(item => item?.Minimum ?? int.MaxValue) == minimum);
             Assert.IsTrue(indexes.Max(item => item?.Maximum ?? int.MinValue) == maximum);

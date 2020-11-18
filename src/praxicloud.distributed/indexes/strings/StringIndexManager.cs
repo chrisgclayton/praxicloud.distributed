@@ -72,7 +72,7 @@ namespace praxicloud.distributed.indexes.strings
         /// <inheritdoc />
         public async Task InitializeAsync(CancellationToken cancellationToken)
         {
-            using (await _control.LockAsync())
+            using (await _control.LockAsync(cancellationToken))
             {
                 OwnedIndexes = CreateOwnedIndexCollection(ManagerQuantity, Id, Indexes);
             }
@@ -92,7 +92,7 @@ namespace praxicloud.distributed.indexes.strings
 
             if (IsIdUpdatable)
             {
-                using (await _control.LockAsync())
+                using (await _control.LockAsync(cancellationToken))
                 {
                     if (IsIdUpdatable)
                     {
@@ -119,7 +119,7 @@ namespace praxicloud.distributed.indexes.strings
 
             if (IsManagerQuantityUpdatable)
             {
-                using (await _control.LockAsync())
+                using (await _control.LockAsync(cancellationToken))
                 {
                     if (IsManagerQuantityUpdatable)
                     {
@@ -146,7 +146,7 @@ namespace praxicloud.distributed.indexes.strings
 
             if (AreIndexesUpdatable)
             {
-                using (await _control.LockAsync())
+                using (await _control.LockAsync(cancellationToken))
                 {
                     if (AreIndexesUpdatable)
                     {
@@ -172,7 +172,7 @@ namespace praxicloud.distributed.indexes.strings
         /// <param name="id">The 0 based id of the manager</param>
         /// <param name="indexes">The complete list of indexes</param>
         /// <returns>The array of owned indexes</returns>
-        private string[] CreateOwnedIndexCollection(int managerQuantity, int id, string[] indexes)
+        private static string[] CreateOwnedIndexCollection(int managerQuantity, int id, string[] indexes)
         {
             var values = new List<string>(indexes.Length / managerQuantity);
 
